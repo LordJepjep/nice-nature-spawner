@@ -1,0 +1,1 @@
+A simple webpage where if you click the anywhere on a screen, a cute lil' Natie spawns and drops to the bottom.
