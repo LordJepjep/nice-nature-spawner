@@ -1,8 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  
+}
+
 body {
-  background-color: antiquewhite;
+  background-color: white;
 }
 
 #main {
+  background-color: antiquewhite;
   width: 100vw;
   height: 100vh;
 }
