@@ -7,15 +7,29 @@ let canvasWidth = mainDivRect.width;
 let canvasHeight = mainDivRect.height;
 let thickness = 10;
 
+// const matterContainer = document.querySelector("#matter-container")
+
 // natie options
 let size = 50;
+
+// const natieOptions = {
+//     render: {
+//         sprite: {
+//             texture:
+//         }
+//     }
+// }
 
 // module aliases
 var Engine = Matter.Engine,
   Render = Matter.Render,
   Runner = Matter.Runner,
   Bodies = Matter.Bodies,
-  Composite = Matter.Composite;
+  Body = Matter.Body,
+  Composite = Matter.Composite,
+  Svg = Matter.Svg,
+  Vector = Matter.Vector,
+  Vertices = Matter.Vertices;
 
 // create an engine
 const engine = Engine.create();
@@ -29,10 +43,11 @@ const render = Render.create({
     background: "transparent",
     width: mainDivRect.width,
     height: mainDivRect.height,
+    wireframes: false,
   },
 });
 
-// creates the wallks
+// creates the walls
 
 const wallOptions = {
   isStatic: true,
@@ -91,6 +106,14 @@ function handleClick(event) {
 }
 
 function spawnNatie(x, y) {
-  const natie = Bodies.circle(x, y, size);
-  Composite.add(engine.world, [natie]);
+  const natie = Bodies.circle(x, y, size, {
+    render: {
+      sprite: {
+        texture: "./assets/png/natie_normal.png",
+        xScale: 100 / 300,
+        yScale: 100 / 355,
+      },
+    },
+  });
+  Composite.add(engine.world, natie);
 }
